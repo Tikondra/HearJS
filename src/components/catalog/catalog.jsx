@@ -130,7 +130,7 @@ const Catalog = (props) => {
             </li>
           </ul>
           <div className="filters__btn-box">
-            <button className="blue-btn filters__btn" type="submit">Показать</button>
+            <button className="blue-btn filters__btn" type="submit" disabled>Показать</button>
             <button className="blue-btn filters__btn filter__btn--reset" type="reset">Очистить</button>
           </div>
           <button className="filters__btn-close" type="button">Х</button>
