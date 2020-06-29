@@ -17,6 +17,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github-token: $hear
-  local_dir: build
+  local_dir: public
   on:
     branch: master
