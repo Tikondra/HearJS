@@ -1,74 +1,65 @@
-import React, {PureComponent} from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import {nanoid} from "nanoid";
-import {getPrice} from "../../utils";
-import {MORE_SHOW_CARD, START_SHOW_CARD} from "../../const";
+import {connect} from "react-redux";
+import {getActiveBrand, getOffersByBrand, getShowingOffersCount} from "../../reducer/catalog/selectors";
+import {ActionCreator as CatalogCreator} from "../../reducer/catalog/reducer";
+import Card from "../card/card.jsx";
 
-const getCard = (offers) => offers.map((it) => {
-  const src = `card.html?${it.id}`;
+const getOfferCard = (offers) => offers.map((offer) => {
   return (
-    <li key={nanoid()} className="hits__item cards__item">
-      <img src={it.picture} width="150" height="150" alt={it.title} />
-      <h3 className="hits__item-title">Слуховой аппарат: <br/><span>{it.title}</span></h3>
-      <p className="hits__price">{getPrice(it.price)} ₽</p>
-      <a className="hits__btn blue-btn" href={src}>Подробнее</a>
-    </li>
+    <Card
+      key = {offer.id}
+      offer = {offer}
+    />
   );
 });
 
-class CardList extends PureComponent {
-  constructor(props) {
-    super(props);
+const CardList = ({offers, activeBrand, showingOffersCount, onMoreView}) => {
+  const showingOffers = offers.slice(0, showingOffersCount);
 
-    this.page = props.page;
-    this.offers = props.offers;
-    this.offersCopy = this.offers;
+  return (
+    <section className="board">
+      <h1 className="board__title">Слуховые аппараты</h1>
+      <ul className="breadscrums">
+        <li className="breadscrums__item">
+          <a className="breadscrums__link" href="index.html">Главная</a>
+        </li>
 
-    this.state = {
-      showingCard: START_SHOW_CARD,
-    };
+        <li className="breadscrums__item">
+          <a className="breadscrums__link" href="brands.html">Слуховые аппараты</a>
+        </li>
 
-    this._moreBtnClickHandler = this._moreBtnClickHandler.bind(this);
-  }
-
-  _moreBtnClickHandler() {
-    this.setState((prevState) => ({
-      showingCard: prevState.showingCard + MORE_SHOW_CARD
-    }));
-  }
-
-  render() {
-    const {showingCard} = this.state;
-    const someOffers = this.offersCopy.slice(0, showingCard);
-
-    return (
-      <section className="board">
-        <h1 className="board__title">Слуховые аппараты</h1>
-        <ul className="breadscrums">
-          <li className="breadscrums__item">
-            <a className="breadscrums__link" href="index.html">Главная</a>
-          </li>
-
-          <li className="breadscrums__item">
-            <a className="breadscrums__link" href="brands.html">Слуховые аппараты</a>
-          </li>
-
-          <li className="breadscrums__item">
-            <a className="breadscrums__link">{this.page}</a>
-          </li>
-        </ul>
-        <ul className="cards">
-          {getCard(someOffers)}
-        </ul>
-        <button onClick={this._moreBtnClickHandler} className="board__btn-more" type="button">Показать еще</button>
-      </section>
-    );
-  }
-}
+        <li className="breadscrums__item">
+          <a className="breadscrums__link">{activeBrand}</a>
+        </li>
+      </ul>
+      <ul className="cards">
+        {getOfferCard(showingOffers)}
+      </ul>
+      {showingOffersCount !== offers.length ?
+        <button onClick={() => onMoreView(activeBrand)} className="board__btn-more" type="button">Показать еще</button> : ``
+      }
+    </section>
+  );
+};
 
 CardList.propTypes = {
   offers: PropTypes.array.isRequired,
-  page: PropTypes.string.isRequired,
+  activeBrand: PropTypes.string.isRequired,
+  showingOffersCount: PropTypes.number.isRequired,
+  onMoreView: PropTypes.func.isRequired,
 };
 
-export default CardList;
+const mapStateToProps = (state) => ({
+  offers: getOffersByBrand(state),
+  activeBrand: getActiveBrand(state),
+  showingOffersCount: getShowingOffersCount(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onMoreView(activeBrand) {
+    dispatch(CatalogCreator.moreView(activeBrand));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardList);

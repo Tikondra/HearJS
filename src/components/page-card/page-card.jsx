@@ -2,6 +2,9 @@ import React, {Fragment} from "react";
 import {nanoid} from "nanoid";
 import PropTypes from "prop-types";
 import {getPrice} from "../../utils";
+import {getOfferById} from "../../reducer/catalog/selectors";
+import {ActionCreator as CatalogCreator} from "../../reducer/catalog/reducer";
+import {connect} from "react-redux";
 
 const getDescription = (descriptions) => descriptions.map((it) => {
   return (
@@ -31,7 +34,7 @@ const PageCard = ({offer}) => {
     <Fragment>
       <h2 className="card-description__title">
         Подробное описание:
-        <svg className="card-description__open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40"
+        <svg className="card-description__open card-description__open--active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40"
           height="40" fill="none">
           <use xlinkHref="#icon-blue-arrow"/>
         </svg>
@@ -130,4 +133,14 @@ PageCard.propTypes = {
   })
 };
 
-export default PageCard;
+const mapStateToProps = (state) => ({
+  offer: getOfferById(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onMoreView(activeBrand) {
+    dispatch(CatalogCreator.moreView(activeBrand));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageCard);
