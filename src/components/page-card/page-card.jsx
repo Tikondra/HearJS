@@ -3,7 +3,6 @@ import {nanoid} from "nanoid";
 import PropTypes from "prop-types";
 import {getPrice} from "../../utils";
 import {getOfferById} from "../../reducer/catalog/selectors";
-import {ActionCreator as CatalogCreator} from "../../reducer/catalog/reducer";
 import {connect} from "react-redux";
 
 const getDescription = (descriptions) => descriptions.map((it) => {
@@ -137,10 +136,4 @@ const mapStateToProps = (state) => ({
   offer: getOfferById(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onMoreView(activeBrand) {
-    dispatch(CatalogCreator.moreView(activeBrand));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PageCard);
+export default connect(mapStateToProps)(PageCard);
