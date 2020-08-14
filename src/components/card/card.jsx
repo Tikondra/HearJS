@@ -9,7 +9,7 @@ const Card = ({offer}) => {
     <li className="hits__item">
       <img src={picture} width="150" height="150" alt={title} />
       <h3 className="hits__item-title">Слуховой аппарат: <br/><span>{title}</span></h3>
-      <p className="hits__price">{getPrice(price)} ₽</p>
+      <p className="hits__price">{price !== 0 ? `${getPrice(price)} ₽` : ``}</p>
       <a className="hits__btn blue-btn" href={`card.html?${id}`}>Подробнее</a>
     </li>
   );
