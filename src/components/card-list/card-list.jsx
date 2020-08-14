@@ -36,7 +36,7 @@ const CardList = ({offers, activeBrand, showingOffersCount, onMoreView}) => {
       <ul className="cards">
         {getOfferCard(showingOffers)}
       </ul>
-      {showingOffersCount !== offers.length ?
+      {showingOffersCount < offers.length ?
         <button onClick={() => onMoreView(activeBrand)} className="board__btn-more" type="button">Показать еще</button> : ``
       }
     </section>

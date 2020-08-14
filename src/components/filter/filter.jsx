@@ -29,6 +29,9 @@ const Filter = ({onFilterOffers}) => {
             <li className="categories__item">
               <a className="categories__link" href="catalog.html?Istok-Audio">Исток-Аудио</a>
             </li>
+            <li className="categories__item">
+              <a className="categories__link" href="catalog.html?Aurica">Aurica</a>
+            </li>
           </ul>
         </nav>
 
@@ -42,14 +45,6 @@ const Filter = ({onFilterOffers}) => {
                 <label className="checkboxes__label" htmlFor="type1">
                   <div className="checkboxes__check"/>
                   Внутриканальный
-                </label>
-              </li>
-              <li className="checkboxes__item">
-                <input className="checkboxes__input visually-hidden" type="radio" name="type"
-                  value="Внутриушные" id="type2" />
-                <label className="checkboxes__label" htmlFor="type2">
-                  <div className="checkboxes__check"/>
-                  Внутриушные
                 </label>
               </li>
               <li className="checkboxes__item">
@@ -83,10 +78,10 @@ const Filter = ({onFilterOffers}) => {
             <ul className="filters__checkboxes checkboxes">
               <li className="checkboxes__item">
                 <input className="checkboxes__input visually-hidden" type="radio" name="power"
-                  value="Очень мощный" id="very-strong" />
+                  value="Сверхмощный" id="very-strong" />
                 <label className="checkboxes__label" htmlFor="very-strong">
                   <div className="checkboxes__check"/>
-                  Очень мощный
+                  Сверхмощный
                 </label>
               </li>
 
