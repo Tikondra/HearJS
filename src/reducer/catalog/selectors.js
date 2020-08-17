@@ -9,3 +9,7 @@ export const getOfferById = (state) => state[NameSpace.CATALOG].offers.find((off
 export const getActiveBrand = (state) => state[NameSpace.CATALOG].activeBrand;
 
 export const getShowingOffersCount = (state) => state[NameSpace.CATALOG].showingOffers;
+
+export const getAccessoryOffers = (state) => state[NameSpace.CATALOG].accessory;
+
+export const getAccessoryById = (state) => state[NameSpace.CATALOG].accessory.find((offer) => offer.id === state[NameSpace.CATALOG].activeOfferId);

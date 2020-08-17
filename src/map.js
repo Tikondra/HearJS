@@ -39,6 +39,15 @@ export const initLocal = () => {
       phoneLink2.href = `tel:83452969394`;
       cityMaps[2].classList.remove(`map__city--hide`);
     }
+
+    if (val === `Omsk`) {
+      address.textContent = `г.Омск ул. Карла Маркса 41/1 офис 426`;
+      phone1.textContent = `+8(9502) 11–88–09`;
+      phone2.textContent = `+8(800) 201-06-72`;
+      phoneLink1.href = `tel:89502118809`;
+      phoneLink2.href = `88002010672`;
+      cityMaps[3].classList.remove(`map__city--hide`);
+    }
   }
 
   function changeInfo(val) {
@@ -53,6 +62,11 @@ export const initLocal = () => {
     if (val === `Tymen`) {
       headerAddress.textContent = `ул. Республики, 61`;
       footerAddress.textContent = `ул. Республики, 61`;
+    }
+
+    if (val === `Omsk`) {
+      headerAddress.textContent = `ул. Карла Маркса 41/1 оф 426`;
+      footerAddress.textContent = `ул. Карла Маркса 41/1 оф 426`;
     }
   }
 

@@ -6,6 +6,8 @@ import {ActionCreator as CatalogAction} from "./reducer/catalog/reducer";
 import PageCard from "./components/page-card/page-card.jsx";
 import Catalog from "./components/catalog/catalog.jsx";
 import {initLocal} from "./map";
+import AccsList from "./components/accs-list/accs-list.jsx";
+import PageAccessory from "./components/accs-page/accs-page.jsx";
 
 const strGET = window.location.search.replace(`?`, ``);
 
@@ -29,6 +31,26 @@ const init = () => {
           <Catalog/>
         </Provider>,
         document.querySelector(`#catalog-page`)
+    );
+  }
+
+  if (document.querySelector(`.catalog--accessory`)) {
+    ReactDOM.render(
+        <Provider store={store}>
+          <AccsList/>
+        </Provider>,
+        document.querySelector(`.catalog--accessory`)
+    );
+  }
+
+  if (document.querySelector(`#accs-page`)) {
+    store.dispatch(CatalogAction.changeActiveOfferId(Number(strGET)));
+
+    ReactDOM.render(
+        <Provider store={store}>
+          <PageAccessory/>
+        </Provider>,
+        document.querySelector(`#accs-page`)
     );
   }
 };

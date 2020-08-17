@@ -1,8 +1,10 @@
 import offers from "../../data/offers";
+import accessory from "../../data/accs";
 import {extend, filteredOffers} from "../../utils";
 
 const initialState = {
   offers,
+  accessory,
   activeBrand: null,
   activeOfferId: null,
   showingOffers: 9,

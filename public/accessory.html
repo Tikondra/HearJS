@@ -64,6 +64,7 @@
                 <option value="Astrachan">Астрахань</option>
                 <option value="Stavrapol">Ставрополь</option>
                 <option value="Tymen">Тюмень</option>
+                <option value="Omsk">Омск</option>
               </select>
             </label>
             <p class="header__address">ул. Боевая, 14</p>
@@ -85,128 +86,7 @@
       </div>
     </header>
     <main>
-      <section class="catalog">
-        <button class="catalog__filter-btn" type="button">Фильтр</button>
-        <section class="filters">
-          <form class="filters__form" action="" method="">
-            <h2 class="filters__main-title">Фильтр</h2>
-
-            <nav class="categories">
-              <h3 class="categories__title">Бренды</h3>
-              <ul class="categories__list">
-              <!-- категории -->
-                <li class="categories__item">
-                  <a class="categories__link" href="">Widex</a>
-                </li>
-                <li class="categories__item">
-                  <a class="categories__link" href="">Bernafon</a>
-                </li>
-                <li class="categories__item">
-                  <a class="categories__link" href="">ReSound</a>
-                </li>
-                <li class="categories__item">
-                  <a class="categories__link" href="">Исток-Аудио</a>
-                </li>
-              </ul>
-            </nav>
-
-            <ul class="filters__list">
-              <!-- фильтры -->
-              <li class="filters__item">
-                <h3 class="filters__title">Тип корпуса</h3>
-                <ul class="filters__checkboxes checkboxes">
-                  <li class="checkboxes__item">
-                    <input class="checkboxes__input visually-hidden" type="checkbox" name="Внутриканальный" value="Внутриканальный" id="type1">
-                    <label class="checkboxes__label" for="type1">
-                      <div class="checkboxes__check"></div>
-                      Внутриканальный
-                    </label>
-                  </li>
-                  <li class="checkboxes__item">
-                    <input class="checkboxes__input visually-hidden" type="checkbox" name="Внутриушные" value="Внутриушные" id="type2">
-                    <label class="checkboxes__label" for="type2">
-                      <div class="checkboxes__check"></div>
-                      Внутриушные
-                    </label>
-                  </li>
-                  <li class="checkboxes__item">
-                    <input class="checkboxes__input visually-hidden" type="checkbox" name="Заушные" value="Заушные" id="type3">
-                    <label class="checkboxes__label" for="type3">
-                      <div class="checkboxes__check"></div>
-                      Заушные
-                    </label>
-                  </li>
-                  <li class="checkboxes__item">
-                    <input class="checkboxes__input visually-hidden" type="checkbox" name="Карманные" value="Карманные" id="type4">
-                    <label class="checkboxes__label" for="type4">
-                      <div class="checkboxes__check"></div>
-                      Карманные
-                    </label>
-                  </li>
-                  <li class="checkboxes__item">
-                    <input class="checkboxes__input visually-hidden" type="checkbox" name="Микрозаушный" value="Микрозаушный" id="type5">
-                    <label class="checkboxes__label" for="type5">
-                      <div class="checkboxes__check"></div>
-                      Микрозаушный
-                    </label>
-                  </li>
-                </ul>
-              </li>
-              <li class="filters__item">
-                <h3 class="filters__title">Мощность</h3>
-                <ul class="filters__checkboxes checkboxes">
-                  <li class="checkboxes__item">
-                    <input class="checkboxes__input visually-hidden" type="checkbox" name="Очень мощный" value="Очень мощный" id="very-strong">
-                    <label class="checkboxes__label" for="very-strong">
-                      <div class="checkboxes__check"></div>
-                      Очень мощный
-                    </label>
-                  </li>
-
-                  <li class="checkboxes__item">
-                    <input class="checkboxes__input visually-hidden" type="checkbox" name="Мощный" value="Мощный" id="strong">
-                    <label class="checkboxes__label" for="strong">
-                      <div class="checkboxes__check"></div>
-                      Мощный
-                    </label>
-                  </li>
-
-                  <li class="checkboxes__item">
-                    <input class="checkboxes__input visually-hidden" type="checkbox" name="Средней мощности" value="Средней мощности" id="middle">
-                    <label class="checkboxes__label" for="middle">
-                      <div class="checkboxes__check"></div>
-                      Средней мощности
-                    </label>
-                  </li>
-                </ul>
-              </li>
-              <li class="filters__item">
-                <h3 class="filters__title">Обработка звука</h3>
-                <ul class="filters__checkboxes checkboxes">
-                  <li class="checkboxes__item">
-                    <input class="checkboxes__input visually-hidden" type="checkbox" name="Аналоговые" value="Аналоговые" id="analog">
-                    <label class="checkboxes__label" for="analog">
-                      <div class="checkboxes__check"></div>
-                      Аналоговые
-                    </label>
-                  </li>
-                  <li class="checkboxes__item">
-                    <input class="checkboxes__input visually-hidden" type="checkbox" name="Цифровые" value="Цифровые" id="digital">
-                    <label class="checkboxes__label" for="digital">
-                      <div class="checkboxes__check"></div>
-                      Цифровые
-                    </label>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <div class="filters__btn-box">
-              <button class="blue-btn filters__btn" type="submit">Показать</button>
-              <button class="blue-btn filters__btn filter__btn--reset" type="reset">Очистить</button>
-            </div>
-            <button class="filters__btn-close" type="button">Х</button>
-          </form>
-        </section>
+      <section class="catalog catalog--accessory">
         <section class="board">
           <h1 class="board__title">Аксессуары</h1>
           <ul class="breadscrums">
